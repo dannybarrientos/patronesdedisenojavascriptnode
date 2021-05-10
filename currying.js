@@ -36,6 +36,12 @@ const users = [
 ]
 
 const compose =(...fns) => x =>fns.reduceRight((y,f)=> f(y),x)
+const pipe =(...fns) => x =>fns.reduceRight((y,f)=> f(y),x)
+
+const trace = x => y => console.log(x,y);
+
+
+
 const head = xs =xs[0]
 const formateo = x => ({
          nombreCompleto: `${x.nombre} ${x.apellido}`,
@@ -51,4 +57,12 @@ const traePrimerInfante = data => compose(
     formateo,
     head,
     filter(data.filter(x=>x.edad <2)),
+)
+
+const traePrimerInfante = data => pipe(
+    filter(data.filter(x=>x.edad <2)),
+    trace('Despues del filter'),
+    head,
+    formateo,
+    formato,
 )
