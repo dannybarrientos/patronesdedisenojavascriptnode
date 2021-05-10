@@ -36,29 +36,19 @@ const users = [
 ]
 
 const compose =(...fns) => x =>fns.reduceRight((y,f)=> f(y),x)
-
 const head = xs =xs[0]
-
 const formateo = x => ({
          nombreCompleto: `${x.nombre} ${x.apellido}`,
         edad: x.edad,
 })
 
-const formato = x => {
-    `${x.nombreCompleto} tiene ${x.edad} año(s)`
-}
+const formato = x => {`${x.nombreCompleto} tiene ${x.edad} año(s)`}
 
+const filter = f=> xs => xs.filter(f)
 
-// TODO Esta es una composicion de funciones
-const traePrimerInfante = data =>  formato(formateo(head(data.filter(x=>x.edad < 2))));
-
-
-
-
-
-
-//TODO Ejemplo Composicion
-/*
-f(g(x))
-const a = g(x)
-const r =f(a)*/
+const traePrimerInfante = data => compose(
+    formato,
+    formateo,
+    head,
+    filter(data.filter(x=>x.edad <2)),
+)
