@@ -1,16 +1,20 @@
+// TODO Patron Decorador va a tomar todas las instancias de una clase y le va ir agregando las nuevas funcionales
+
 class Macbook {
-    constructor() {
-        this.precio = 100
-        this.pantalla = 11.6
+    precio() {
+        return 1000
     }
 }
 
-const macbook = new Macbook()
-
-macbook.agregarMemoria = function (){
-    this.precio += 100
+const memoria = mac => {
+    const valorPrecio = mac.precio()
+    mac.precio = function () {
+        return valorPrecio + 200
+    }
 }
 
-macbook.agregarMemoria()
 
-console.log(macbook.precio);
+const macbook = new Macbook()
+
+memoria(macbook)
+console.log(macbook.precio());
