@@ -37,7 +37,7 @@ const get = url => new Promise((resolve, reject) => {
 
 const main  = async () => {
     const resultado = await get('jsonplaceholder.typicode.com/users')
-    console.log('resultado APi', resultado);
+    console.log('resultado', resultado);
 }
 
 main()
