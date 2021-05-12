@@ -8,6 +8,9 @@ const instance = axios.create ({
 
 //TODO Patron Adaptador
 const adapter = {
-    get: url => instance.get(url)
+    get: url => instance.get(url),
+    post: (url, body) => instance.post(url,body),
+    put: (url, body) => instance.post(url,body),
+    delete: url => instance.delete(url)
 }
 module.exports = adapter
