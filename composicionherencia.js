@@ -16,9 +16,6 @@ classe Perro extends Persona {
 }*/
 
 
-const saludar = name => console.log(`Hola! soy ${name}`)
-const despedir = () => console.log(`Adios! `)
-const dormir = () => console.log(`zzzzzzzz `)
 
 //TODO una manera de reemplazar esto una funcion que ya esta definida y en otro objeto es llamada
 /*
@@ -29,6 +26,9 @@ const persona = {
 */
 //TODO con una clase
 
+const saludar = name => console.log(`Hola! soy ${name}`)
+const despedir = () => console.log(`Adios! `)
+const dormir = () => console.log(`zzzzzzzz `)
 class Persona {
     constructor () {
         this.nombre = 'lala'
@@ -44,7 +44,7 @@ class robot {
         this.nombre = 'lala'
     }
 
-    saludar(){saludar(this.nombre)}
-    despedir(){despedir()}    
+    saludar(){ saludar(this.nombre) }
+    despedir(){ despedir() }    
 
 }
